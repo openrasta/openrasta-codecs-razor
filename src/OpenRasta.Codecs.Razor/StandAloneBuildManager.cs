@@ -44,7 +44,13 @@ namespace OpenRasta.Codecs.Razor
 
         private static IEnumerable<string> GetReferencedAssemblies(ViewDefinition viewDefinition)
         {
-            var referenced = viewDefinition.ViewAssembly.GetReferencedAssemblies().Select(x => x.CodeBase).ToList();
+            var viewAssemblyDirectoryName = new FileInfo(viewDefinition.ViewAssembly.Location).DirectoryName;
+            var referenced = viewDefinition.ViewAssembly.GetReferencedAssemblies().Select(x =>
+            {
+                var path = string.Format(@"{0}\{1}.dll", viewAssemblyDirectoryName, x.Name);
+                if (File.Exists(path)) return path;
+                return x.CodeBase;
+            }).ToList();
             referenced.Add(viewDefinition.ViewAssembly.Location);
             return referenced;
         }
