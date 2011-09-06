@@ -17,7 +17,9 @@ namespace OpenRasta.Codecs.Razor
 
         public ViewDefinition GetViewDefinition(string path)
         {
-            var stream = _assembly.GetManifestResourceStream(string.Join(".", _baseNamespace,path));
+            path = path.Replace("~", "").Replace("/", ".");
+
+            var stream = _assembly.GetManifestResourceStream(_baseNamespace + path);
             if (stream == null)
             {
                 return null;
