@@ -51,7 +51,7 @@ namespace OpenRasta.Codecs.Razor
 
         private static CompilerParameters CreateCompilerParameters(IEnumerable<string> additionalAssemblies)
         {
-            var referencedAssemblies = new List<string>(additionalAssemblies)
+            var referencedAssemblies = new List<string>
                                            {
                                                "System.dll",
                                                "System.Core.dll",
@@ -65,6 +65,15 @@ namespace OpenRasta.Codecs.Razor
                                            };            
 
             var parameters = new CompilerParameters();
+
+            foreach (var current in additionalAssemblies)
+            {
+                if (!referencedAssemblies.Any(x => current.EndsWith("\\" + x) || current.Equals(x, StringComparison.InvariantCultureIgnoreCase)))
+                {
+                    referencedAssemblies.Add(current);
+                }
+            }
+
             parameters.ReferencedAssemblies.AddRange(referencedAssemblies.ToArray());
             parameters.GenerateExecutable = false;
             parameters.GenerateInMemory = true;
