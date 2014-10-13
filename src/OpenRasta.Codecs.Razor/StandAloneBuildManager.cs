@@ -44,7 +44,7 @@ namespace OpenRasta.Codecs.Razor
 
         private static IEnumerable<string> GetReferencedAssemblies(ViewDefinition viewDefinition)
         {
-            var referenced = viewDefinition.ViewAssembly.GetReferencedAssemblies().Select(x => x.CodeBase).ToList();
+            var referenced = viewDefinition.ViewAssembly.GetReferencedAssemblies().Select(x => Assembly.ReflectionOnlyLoad(x.FullName)).Select(x => x.Location).ToList();
             referenced.Add(viewDefinition.ViewAssembly.Location);
             return referenced;
         }
