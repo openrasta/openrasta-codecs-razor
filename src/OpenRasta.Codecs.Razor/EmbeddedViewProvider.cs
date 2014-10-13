@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace OpenRasta.Codecs.Razor
 {
@@ -17,7 +18,7 @@ namespace OpenRasta.Codecs.Razor
 
         public ViewDefinition GetViewDefinition(string path)
         {
-            path = path.Replace("~", "").Replace("/", ".");
+            path = Regex.Replace(path, "^(~/)|/", ".");
 
             var stream = _assembly.GetManifestResourceStream(_baseNamespace + path);
             if (stream == null)
