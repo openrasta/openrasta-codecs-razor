@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRasta.Codecs.Razor", "OpenRasta.Codecs.Razor\OpenRasta.Codecs.Razor.csproj", "{A39F99D3-553C-41C7-A2B7-D2AF3C368C38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRasta.Codecs.Razor.Tests", "OpenRasta.Codecs.Razor.Tests\OpenRasta.Codecs.Razor.Tests.csproj", "{D8C60CC6-1614-4352-8F6B-3F382085D99D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRasta.Codecs.Razor.ConsoleTestApp", "OpenRasta.Codecs.Razor.ConsoleTestApp\OpenRasta.Codecs.Razor.ConsoleTestApp.csproj", "{90318255-129A-4CF2-AB22-2A81AC03F9C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRasta.Codecs.Razor.WebTestApp", "OpenRasta.Codecs.Razor.WebTestApp\OpenRasta.Codecs.Razor.WebTestApp.csproj", "{F63C9B81-EDCA-4E94-B8CF-88399767926E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A39F99D3-553C-41C7-A2B7-D2AF3C368C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A39F99D3-553C-41C7-A2B7-D2AF3C368C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A39F99D3-553C-41C7-A2B7-D2AF3C368C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A39F99D3-553C-41C7-A2B7-D2AF3C368C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8C60CC6-1614-4352-8F6B-3F382085D99D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8C60CC6-1614-4352-8F6B-3F382085D99D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8C60CC6-1614-4352-8F6B-3F382085D99D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8C60CC6-1614-4352-8F6B-3F382085D99D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90318255-129A-4CF2-AB22-2A81AC03F9C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90318255-129A-4CF2-AB22-2A81AC03F9C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90318255-129A-4CF2-AB22-2A81AC03F9C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90318255-129A-4CF2-AB22-2A81AC03F9C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F63C9B81-EDCA-4E94-B8CF-88399767926E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F63C9B81-EDCA-4E94-B8CF-88399767926E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F63C9B81-EDCA-4E94-B8CF-88399767926E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F63C9B81-EDCA-4E94-B8CF-88399767926E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4AAB667E-3478-4794-940D-8AA028D586F6}</ProjectGuid>
+    <ProjectGuid>{A39F99D3-553C-41C7-A2B7-D2AF3C368C38}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OpenRasta.Codecs.Razor</RootNamespace>
     <AssemblyName>OpenRasta.Codecs.Razor</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,36 +30,35 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenRasta, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\openrasta-core.2.5.31\lib\net40\OpenRasta.dll</HintPath>
+    <Reference Include="OpenRasta">
+      <HintPath>..\packages\openrasta-core.2.5.31\lib\net40\OpenRasta.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AspNetBuildManager.cs" />
-    <Compile Include="HelperResult.cs" />
-    <Compile Include="SetResourceTypeCodeGenerator.cs" />
     <Compile Include="CompilationData.cs" />
     <Compile Include="CompilationManager.cs" />
     <Compile Include="EmbeddedViewProvider.cs" />
+    <Compile Include="HelperResult.cs" />
     <Compile Include="IBuildManager.cs" />
     <Compile Include="IViewProvider.cs" />
-    <Compile Include="OpenRastaRazorBuildProvider.cs" />
-    <Compile Include="OpenRastaRazorHostFactory.cs" />
     <Compile Include="OpenRastaCSharpRazorCodeGenerator.cs" />
     <Compile Include="OpenRastaCSharpRazorCodeParser.cs" />
+    <Compile Include="OpenRastaRazorBuildProvider.cs" />
     <Compile Include="OpenRastaRazorHost.cs" />
-    <Compile Include="RazorCodec.cs" />
+    <Compile Include="OpenRastaRazorHostFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RazorCodec.cs" />
     <Compile Include="RazorConfigurationExtensions.cs" />
     <Compile Include="RazorViewBase.cs" />
+    <Compile Include="SetResourceTypeCodeGenerator.cs" />
     <Compile Include="StandAloneBuildManager.cs" />
     <Compile Include="ViewDefinition.cs" />
   </ItemGroup>
