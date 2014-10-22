@@ -44,6 +44,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonInfo.cs">
+      <Link>CommonInfo.cs</Link>
+    </Compile>
     <Compile Include="AspNetBuildManager.cs" />
     <Compile Include="CompilationData.cs" />
     <Compile Include="CompilationManager.cs" />

@@ -38,6 +38,9 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonInfo.cs">
+      <Link>CommonInfo.cs</Link>
+    </Compile>
     <Compile Include="FakeViewProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StandAloneBuildManagerTests.cs" />

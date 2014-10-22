@@ -86,6 +86,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonInfo.cs">
+      <Link>CommonInfo.cs</Link>
+    </Compile>
     <Compile Include="Configuration.cs" />
     <Compile Include="Handlers\TestHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
