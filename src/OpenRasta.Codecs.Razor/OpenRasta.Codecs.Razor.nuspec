@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>openrasta-razor</id>
+    <version>$version$</version>
+    <title>OpenRasta Razor Codec</title>
+    <authors>Szymon Pobiega, Sebastien Lambla, Toby Henderson</authors>
+    <owners>Sebastien Lambla</owners>
+    <licenseUrl>http://openrasta.org/</licenseUrl>
+    <projectUrl>https://github.com/openrasta/openrasta-codecs-razor</projectUrl>
+    <iconUrl>http://openrasta.org/openRastaLogo-32x32.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>OpenRasta codec for razor templates</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2011</copyright>
+    <tags>OpenRasta Codec Razor</tags>
+    <dependencies>
+      <dependency id="openrasta-core" version="2.5.31" />
+      <dependency id="Microsoft.AspNet.Razor" version="2.0.30506.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="bin\release\OpenRasta.Codecs.Razor.dll" target="lib\net40\OpenRasta.Codecs.Razor.dll" />
+  </files>
+</package>

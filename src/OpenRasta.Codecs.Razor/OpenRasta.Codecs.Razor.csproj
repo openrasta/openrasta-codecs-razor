@@ -68,6 +68,7 @@
     <Compile Include="ViewDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="OpenRasta.Codecs.Razor.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
