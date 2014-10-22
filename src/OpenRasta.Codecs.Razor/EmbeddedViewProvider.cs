@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 
 namespace OpenRasta.Codecs.Razor
@@ -17,13 +16,13 @@ namespace OpenRasta.Codecs.Razor
 
         public ViewDefinition GetViewDefinition(string path)
         {
-            var stream = _assembly.GetManifestResourceStream(string.Join(".", _baseNamespace,path));
+            Stream stream = _assembly.GetManifestResourceStream(string.Join(".", _baseNamespace, path));
             if (stream == null)
             {
                 return null;
             }
             var reader = new StreamReader(stream);
-            return new ViewDefinition(path, reader,_assembly);
+            return new ViewDefinition(path, reader, _assembly);
         }
     }
 }

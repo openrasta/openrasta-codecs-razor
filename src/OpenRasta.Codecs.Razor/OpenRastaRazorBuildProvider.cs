@@ -1,7 +1,6 @@
 using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
-using System.Collections;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -10,7 +9,6 @@ using System.Web;
 using System.Web.Compilation;
 using System.Web.Hosting;
 using System.Web.Razor;
-using System.Web.Razor.Generator;
 using System.Web.Razor.Parser;
 using System.Web.Razor.Parser.SyntaxTree;
 
@@ -43,18 +41,9 @@ namespace OpenRasta.Codecs.Razor
                 MapPhysicalPath();
                 return _physicalPath;
             }
-            set { _physicalPath = value; }
-        }
-
-        private void MapPhysicalPath()
-        {
-            if (_physicalPath == null && HostingEnvironment.IsHosted)
+            set
             {
-                string path = HostingEnvironment.MapPath(VirtualPath);
-                if (!String.IsNullOrEmpty(path) && File.Exists(path))
-                {
-                    _physicalPath = path;
-                }
+                _physicalPath = value;
             }
         }
 
@@ -87,7 +76,19 @@ namespace OpenRasta.Codecs.Razor
                 }
                 return compilerType;
             }
-        }        
+        }
+
+        private void MapPhysicalPath()
+        {
+            if (_physicalPath == null && HostingEnvironment.IsHosted)
+            {
+                string path = HostingEnvironment.MapPath(VirtualPath);
+                if (!String.IsNullOrEmpty(path) && File.Exists(path))
+                {
+                    _physicalPath = path;
+                }
+            }
+        }
 
         public override Type GetGeneratedType(CompilerResults results)
         {
@@ -102,7 +103,7 @@ namespace OpenRasta.Codecs.Razor
         private OpenRastaRazorHost CreateHost()
         {
             return OpenRastaRazorHostFactory.CreateHost(GetCodeLanguage());
-        }        
+        }
 
         private RazorCodeLanguage GetCodeLanguage()
         {
@@ -161,7 +162,8 @@ namespace OpenRasta.Codecs.Razor
 
         private string GetClassName()
         {
-            return ParserHelpers.SanitizeClassName(Path.GetFileName(VirtualPath));
+            //return ParserHelpers.SanitizeClassName(Path.GetFileName(VirtualPath));
+            return ParserHelpers.SanitizeClassName(OpenRastaRazorHost.PageClassNamePrefix + VirtualPath.TrimStart('~', '/'));
         }
 
         private static HttpParseException CreateExceptionFromParserError(RazorError error, string virtualPath)

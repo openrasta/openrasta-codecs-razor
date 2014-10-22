@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="OpenRasta">
-      <HintPath>..\..\lib\openrasta\OpenRasta.dll</HintPath>
+      <HintPath>..\..\packages\openrasta-core.2.5.31\lib\net40\OpenRasta.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,13 +62,19 @@
     <Compile Include="Resources\TestResource.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenRasta.Codecs.Razor\OpenRasta.Codecs.Razor.csproj">
-      <Project>{4AAB667E-3478-4794-940D-8AA028D586F6}</Project>
-      <Name>OpenRasta.Codecs.Razor</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="Views\TestView.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\TestView.cshtml" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenRasta.Codecs.Razor\OpenRasta.Codecs.Razor.csproj">
+      <Project>{4aab667e-3478-4794-940d-8aa028d586f6}</Project>
+      <Name>OpenRasta.Codecs.Razor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

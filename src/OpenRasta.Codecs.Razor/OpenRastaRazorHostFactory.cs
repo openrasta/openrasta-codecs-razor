@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Web.Razor;
-using System.Web.WebPages.Razor;
+﻿using System.Web.Razor;
 
 namespace OpenRasta.Codecs.Razor
 {

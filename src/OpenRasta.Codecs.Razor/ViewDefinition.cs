@@ -18,17 +18,26 @@ namespace OpenRasta.Codecs.Razor
 
         public Assembly ViewAssembly
         {
-            get { return _viewAssembly; }
+            get
+            {
+                return _viewAssembly;
+            }
         }
 
         public string FileName
         {
-            get { return _fileName; }
+            get
+            {
+                return _fileName;
+            }
         }
 
         public TextReader Contents
         {
-            get { return _contents; }
+            get
+            {
+                return _contents;
+            }
         }
     }
 }

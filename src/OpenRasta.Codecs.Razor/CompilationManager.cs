@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
+
 using OpenRasta.Web;
 
 namespace OpenRasta.Codecs.Razor
@@ -35,38 +36,38 @@ namespace OpenRasta.Codecs.Razor
 
         private static Type CompileType(Func<CompilationData> compilationDataGenerator)
         {
-            var compilationData = compilationDataGenerator();
-            var code = compilationData.Code;
-            var compiled = _compiler.CompileAssemblyFromDom(CreateCompilerParameters(compilationData.AdditionalAssemblies), code);
+            CompilationData compilationData = compilationDataGenerator();
+            CodeCompileUnit code = compilationData.Code;
+            CompilerResults compiled = _compiler.CompileAssemblyFromDom(CreateCompilerParameters(compilationData.AdditionalAssemblies), code);
 
             if (compiled.Errors.HasErrors)
             {
-                var sourceCode = new StringBuilder();                
+                var sourceCode = new StringBuilder();
                 _compiler.GenerateCodeFromCompileUnit(code, new StringWriter(sourceCode), new CodeGeneratorOptions());
                 throw new HttpCompileException(compiled, sourceCode.ToString());
             }
-            
+
             return compiled.CompiledAssembly.GetTypes().First();
         }
 
         private static CompilerParameters CreateCompilerParameters(IEnumerable<string> additionalAssemblies)
         {
             var referencedAssemblies = new List<string>
-                                           {
-                                               "System.dll",
-                                               "System.Core.dll",
-                                               "System.Web.dll",
-                                               "System.Data.dll",
-                                               "System.Web.Extensions.dll",                                               
-                                               "Microsoft.CSharp.dll",                                                                                              
-                                               typeof(IRequest).Assembly.Location,
-                                               typeof(System.Web.WebPages.HelperResult).Assembly.Location,
-                                               typeof(StandAloneBuildManager).Assembly.Location
-                                           };            
+                                       {
+                                           "System.dll",
+                                           "System.Core.dll",
+                                           "System.Web.dll",
+                                           "System.Data.dll",
+                                           "System.Web.Extensions.dll",
+                                           "Microsoft.CSharp.dll",
+                                           typeof(IRequest).Assembly.Location,
+                                           typeof(OpenRasta.Codecs.Razor.HelperResult).Assembly.Location,
+                                           typeof(StandAloneBuildManager).Assembly.Location
+                                       };
 
             var parameters = new CompilerParameters();
 
-            foreach (var current in additionalAssemblies)
+            foreach (string current in additionalAssemblies)
             {
                 if (!referencedAssemblies.Any(x => current.EndsWith("\\" + x) || current.Equals(x, StringComparison.InvariantCultureIgnoreCase)))
                 {
@@ -84,7 +85,7 @@ namespace OpenRasta.Codecs.Razor
         private static CodeDomProvider CreateCompiler()
         {
             var options = new Dictionary<string, string> { { "CompilerVersion", "v4.0" } };
-            var compiler = CodeDomProvider.CreateProvider("C#", options);
+            CodeDomProvider compiler = CodeDomProvider.CreateProvider("C#", options);
             return compiler;
         }
     }

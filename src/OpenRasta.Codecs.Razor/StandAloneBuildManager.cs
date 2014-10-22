@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,8 +26,8 @@ namespace OpenRasta.Codecs.Razor
 
         private CompilationData GenerateCode(string path)
         {
-            var viewDefinition = _viewProvider.GetViewDefinition(path);
-            var host = OpenRastaRazorHostFactory.CreateHost(DetermineCodeLanguage(viewDefinition.FileName));
+            ViewDefinition viewDefinition = _viewProvider.GetViewDefinition(path);
+            OpenRastaRazorHost host = OpenRastaRazorHostFactory.CreateHost(DetermineCodeLanguage(path));
             var engine = new RazorTemplateEngine(host);
             GeneratorResults results;
             using (TextReader reader = viewDefinition.Contents)
@@ -44,7 +43,7 @@ namespace OpenRasta.Codecs.Razor
 
         private static IEnumerable<string> GetReferencedAssemblies(ViewDefinition viewDefinition)
         {
-            var referenced = viewDefinition.ViewAssembly.GetReferencedAssemblies().Select(x => Assembly.ReflectionOnlyLoad(x.FullName)).Select(x => x.Location).ToList();
+            List<string> referenced = viewDefinition.ViewAssembly.GetReferencedAssemblies().Select(x => Assembly.ReflectionOnlyLoad(x.FullName)).Select(x => x.Location).ToList();
             referenced.Add(viewDefinition.ViewAssembly.Location);
             return referenced;
         }

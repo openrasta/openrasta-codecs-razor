@@ -1,5 +1,4 @@
-﻿using System;
-using System.CodeDom;
+﻿using System.CodeDom;
 using System.Collections.Generic;
 
 namespace OpenRasta.Codecs.Razor
@@ -17,12 +16,18 @@ namespace OpenRasta.Codecs.Razor
 
         public CodeCompileUnit Code
         {
-            get { return _code; }
+            get
+            {
+                return _code;
+            }
         }
 
         public IEnumerable<string> AdditionalAssemblies
         {
-            get { return _additionalAssemblies; }
+            get
+            {
+                return _additionalAssemblies;
+            }
         }
     }
 }

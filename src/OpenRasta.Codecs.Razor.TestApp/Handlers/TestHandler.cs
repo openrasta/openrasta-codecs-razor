@@ -6,10 +6,7 @@ namespace OpenRasta.Codecs.Razor.TestApp.Handlers
     {
         public TestResource Get()
         {
-            return new TestResource
-                       {
-                           TestString = "Hello, OpenRasta!"
-                       };
+            return new TestResource { TestString = "Hello, OpenRasta!" };
         }
     }
 }

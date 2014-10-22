@@ -9,12 +9,8 @@ namespace OpenRasta.Codecs.Razor.TestApp
         public void Configure()
         {
             using (OpenRastaConfiguration.Manual)
-            {                
-                ResourceSpace.Has.ResourcesOfType<TestResource>()
-                    .AtUri("/home")
-                    .And.AtUri("/")
-                    .HandledBy<TestHandler>()
-                    .RenderedByRazor(new {index = "~/Views/TestView.cshtml"});           
+            {
+                ResourceSpace.Has.ResourcesOfType<TestResource>().AtUri("/home").And.AtUri("/").HandledBy<TestHandler>().RenderedByRazor(new { index = "~/Views/TestView.cshtml" });
             }
         }
     }

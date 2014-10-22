@@ -10,7 +10,7 @@ namespace OpenRasta.Codecs.Razor.ConsoleTestApp
 
         public override bool ConfigureRootDependencies(IDependencyResolver resolver)
         {
-            var result = base.ConfigureRootDependencies(resolver);
+            bool result = base.ConfigureRootDependencies(resolver);
             if (result && Configuration != null)
             {
                 resolver.AddDependencyInstance<IConfigurationSource>(Configuration);

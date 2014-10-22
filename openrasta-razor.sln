@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRasta.Codecs.Razor", "src\OpenRasta.Codecs.Razor\OpenRasta.Codecs.Razor.csproj", "{4AAB667E-3478-4794-940D-8AA028D586F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenRasta.Codecs.Razor.TestApp", "src\OpenRasta.Codecs.Razor.TestApp\OpenRasta.Codecs.Razor.TestApp.csproj", "{C414CEF0-794E-4865-8EB3-042207F51545}"

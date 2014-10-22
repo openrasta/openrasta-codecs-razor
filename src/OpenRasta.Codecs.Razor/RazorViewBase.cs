@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Web;
-using System.Web.WebPages;
 
 namespace OpenRasta.Codecs.Razor
 {
@@ -13,7 +11,7 @@ namespace OpenRasta.Codecs.Razor
         public TextWriter Output { get; set; }
 
         /// <summary>
-        /// Overridden in generated view class.
+        ///     Overridden in generated view class.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public abstract void Execute();
@@ -63,7 +61,7 @@ namespace OpenRasta.Codecs.Razor
 
         public override sealed void SetResource(object resource)
         {
-            Resource = (T) resource;
+            Resource = (T)resource;
         }
     }
 }
