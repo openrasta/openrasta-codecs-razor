@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Text;
 using System.Web;
 
 namespace OpenRasta.Codecs.Razor
@@ -29,6 +31,19 @@ namespace OpenRasta.Codecs.Razor
         public void WriteLiteral(object value)
         {
             Output.Write(value);
+        }
+
+        public void WriteAttribute(string attr,
+                                           Tuple<string, int> token1,
+                                           Tuple<string, int> token2,
+                                           Tuple<Tuple<string, int>, Tuple<object, int>, bool> token3)
+        {
+            var stringBuilder = new StringBuilder();
+            if (token1 != null) stringBuilder.Append(token1.Item1);
+            if (token2 != null) stringBuilder.Append(token3.Item2.Item1);
+            if (token3 != null) stringBuilder.Append(token2.Item1);
+
+            Output.Write(stringBuilder.ToString());
         }
 
         // This method is called by generated code and needs to stay in sync with the parser
