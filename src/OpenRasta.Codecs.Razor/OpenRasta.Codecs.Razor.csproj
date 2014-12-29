@@ -48,6 +48,7 @@
       <Link>CommonInfo.cs</Link>
     </Compile>
     <Compile Include="AspNetBuildManager.cs" />
+    <Compile Include="AttributeValue.cs" />
     <Compile Include="CompilationData.cs" />
     <Compile Include="CompilationManager.cs" />
     <Compile Include="EmbeddedViewProvider.cs" />
