@@ -38,14 +38,14 @@ namespace OpenRasta.Codecs.Razor
                                    Tuple<string, int> trailer,
                                    params AttributeValue[] parts)
         {
-            WriteLiteral(leader);
+            WriteLiteral(leader.Item1);
             foreach (var part in parts)
             {
                 WriteLiteral(part.Prefix.Item1);
                 if (part.Literal) WriteLiteral(part.Value.Item1);
                 else Write(part.Value.Item1);
             }
-            WriteLiteral(trailer);
+            WriteLiteral(trailer.Item1);
         }
 
         // This method is called by generated code and needs to stay in sync with the parser
