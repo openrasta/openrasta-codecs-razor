@@ -1,5 +1,7 @@
-﻿using System.IO;
+using System;
+using System.IO;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace OpenRasta.Codecs.Razor
 {
@@ -16,16 +18,16 @@ namespace OpenRasta.Codecs.Razor
 
         public ViewDefinition GetViewDefinition(string path)
         {
-            path = path.Replace("~", "").Replace("/", ".");
-            var stream = _assembly.GetManifestResourceStream(_baseNamespace + path);
-          
+            path = Regex.Replace(path, "^(~/)|/", ".");
 
+            var streamName = path.StartsWith(".") ? _baseNamespace + path : _baseNamespace + "." + path;
+            var stream = _assembly.GetManifestResourceStream(streamName);
             if (stream == null)
             {
                 return null;
             }
             var reader = new StreamReader(stream);
-            return new ViewDefinition(path, reader, _assembly);
+            return new ViewDefinition(path, reader,_assembly);
         }
     }
 }
