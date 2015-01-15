@@ -38,14 +38,7 @@ namespace OpenRasta.Codecs.Razor
                                    Tuple<string, int> trailer,
                                    params AttributeValue[] parts)
         {
-            WriteLiteral(leader.Item1);
-            foreach (var part in parts)
-            {
-                WriteLiteral(part.Prefix.Item1);
-                if (part.Literal) WriteLiteral(part.Value.Item1);
-                else Write(part.Value.Item1);
-            }
-            WriteLiteral(trailer.Item1);
+            WriteAttributeTo(Output, name, leader, trailer, parts);
         }
 
         // This method is called by generated code and needs to stay in sync with the parser
@@ -67,6 +60,21 @@ namespace OpenRasta.Codecs.Razor
         public static void WriteLiteralTo(TextWriter writer, object content)
         {
             writer.Write(content);
+        }
+
+        public static void WriteAttributeTo(TextWriter writer, string name,
+            Tuple<string, int> leader,
+            Tuple<string, int> trailer,
+            params AttributeValue[] parts)
+        {
+            WriteLiteralTo(writer, leader.Item1);
+            foreach (var part in parts)
+            {
+                WriteLiteralTo(writer, part.Prefix.Item1);
+                if (part.Literal) WriteLiteralTo(writer, part.Value.Item1);
+                else WriteTo(writer, part.Value.Item1);
+            }
+            WriteLiteralTo(writer, trailer.Item1);
         }
 
         public abstract void SetResource(object resource);
